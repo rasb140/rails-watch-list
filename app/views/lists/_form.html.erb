@@ -1,0 +1,8 @@
+  <%= form_with url: lists_path, model: @list do |l| %>
+    <div class="form-group">
+      <%= l.label :name %>
+      <%= l.text_field :name, class: 'form-control' %>
+    </div>
+
+    <%= l.submit class: 'btn btn-primary mt-3' %>
+  <% end %>
