@@ -1,0 +1,27 @@
+<div class="container mt-5">
+  <h1>My Bookmarks</h1>
+
+  <ul id="lists">
+    <% @bookmarks.each do |bookmark| %>
+      <li>
+        <%= link_to bookmark.id, list_bookmark_path(bookmark.list.id, bookmark.id) %>
+        <%= link_to list_bookmark_path(bookmark.list.id, bookmark.id), data: {turbo_method: :delete, turbo_confirm: "Apaga-me o #{bookmark.id}?"} do %>
+          <i class="fa-regular fa-trash-can"></i>
+        <% end %>
+        <br><br>
+        <%= bookmark.comment %>
+        <br><br>
+        <%= bookmark.movie.title %>
+        <br><br>
+        <%= bookmark.list.name %>
+        <br><br>
+      </li>
+    <% end %>
+  </ul>
+
+  <hr>
+
+  <%= link_to new_list_bookmark_path do %>
+    <i class="fa-solid fa-plus"></i> Add a new bookmark
+  <% end %>
+</div>

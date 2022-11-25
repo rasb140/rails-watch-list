@@ -1,0 +1,26 @@
+<div class="container mt-5">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h1><%= @bookmark.id %></h1>
+    <%= link_to edit_list_bookmark_path(@bookmark.list_id, @bookmark.id), class: 'btn btn-light btn-sm border' do %>
+      <i class="fa fa-pencil"></i> Edit this Bookmark
+    <% end %>
+  </div>
+
+  <hr>
+  <ul id="lists">
+      <li>
+        <%= @bookmark.comment %>
+        <br>
+        <%= @bookmark.movie.title %>
+        <%= @bookmark.movie.overview %>
+        <strong>rating: &#11088;<%= @bookmark.movie.rating %></strong>
+        <img width="200px" src="<%= @bookmark.movie.poster_url %>"/>
+      </li>
+  </ul>
+
+
+  <hr>
+  <%= link_to list_bookmarks_path(@bookmark.list_id) do %>
+    <i class="fa-solid fa-arrow-rotate-left"></i> Back to list
+  <% end %>
+</div>
